@@ -1,7 +1,7 @@
 # CustomPopUpTransition
 Simple custom PopUp ViewController transition animations.
 
-![Alt text](readme_assets/popup_demo.gif?raw=true "Title")
+<img src="readme_assets/popup_demo.gif" width="225">
 
 While developing my first iOS app [Rhythm](https://itunes.apple.com/us/app/rhythm-daily-fasting-tracker/id1377199450?) I wanted to be able to display a PopUp Controller modally from the Home ViewController. The app is using a TabBarController as its RootViewController. What I attempted at first was to just simply present the PopUp Controller from the Home ViewController using the default transition animation. When I presented the PopUp ViewController the Controller slid up from behind the TabBar. After some research I found the problem was that I wasn't setting the modalPresentationStyle proprty for the PopUp ViewController. Setting the modalPresentationStyle property to .overFullScreen and also setting the .definesPresentationContext property of the Home ViewController to true solved the sliding up behind the TabBar problem.
 
