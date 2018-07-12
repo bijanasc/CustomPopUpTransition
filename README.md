@@ -1,5 +1,5 @@
 # CustomPopUpTransition
-Custom PopUp ViewController transition animation.
+Simple custom PopUp ViewController transition animations.
 
 ![Alt text](readme_assets/popup_demo.gif?raw=true "Title")
 
