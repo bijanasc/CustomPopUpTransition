@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  BlurryBackgroundPopUp
+//  CustomPopUpTransition
 //
 //  Created by Bijan Cronin on 6/28/18.
 //  Copyright © 2018 Bijan Cronin. All rights reserved.
@@ -16,10 +16,14 @@ class ViewController: UIViewController {
         button.backgroundColor = .white
         button.setTitle("Show PopUp!", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        let font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        button.titleLabel?.font = font
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         button.addTarget(self, action: #selector(showPopUp), for: .touchUpInside)
         button.showsTouchWhenHighlighted = true
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.1
+        button.layer.shadowRadius = 4
+        button.layer.cornerRadius = 25
         return button
     }()
     
@@ -37,11 +41,6 @@ class ViewController: UIViewController {
         launchPopUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         launchPopUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         launchPopUpButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        launchPopUpButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        launchPopUpButton.layer.shadowColor = UIColor.black.cgColor
-        launchPopUpButton.layer.shadowOpacity = 0.1
-        launchPopUpButton.layer.shadowRadius = 4
-        launchPopUpButton.layer.cornerRadius = 25
     }
 
     override func viewDidLoad() {

@@ -1,6 +1,6 @@
 //
-//  BlurryPopUpController.swift
-//  BlurryBackgroundPopUp
+//  CustomPopUpController.swift
+//  CustomPopUpTransition
 //
 //  Created by Bijan Cronin on 6/28/18.
 //  Copyright © 2018 Bijan Cronin. All rights reserved.
@@ -17,6 +17,11 @@ class CustomPopUpController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.isUserInteractionEnabled = true
+        view.layer.cornerRadius = 9
+        view.layer.shadowOffset = CGSize(width: 0, height: 6)
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowRadius = 6
         return view
     }()
     
@@ -34,10 +39,14 @@ class CustomPopUpController: UIViewController {
         button.backgroundColor = .gray
         button.setTitle("Dismiss!", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        let font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        button.titleLabel?.font = font
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         button.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         button.showsTouchWhenHighlighted = true
+        button.layer.shadowOffset = CGSize(width: 0, height: 4)
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.1
+        button.layer.shadowRadius = 4
+        button.layer.cornerRadius = 25
         return button
     }()
     
@@ -72,20 +81,10 @@ class CustomPopUpController: UIViewController {
         popUpView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         popUpViewCenterYAnchor = popUpView.topAnchor.constraint(equalTo: view.bottomAnchor)
         popUpViewCenterYAnchor?.isActive = true
-        popUpView.layer.cornerRadius = 9
-        popUpView.layer.shadowOffset = CGSize(width: 0, height: 6)
-        popUpView.layer.shadowColor = UIColor.black.cgColor
-        popUpView.layer.shadowOpacity = 0.2
-        popUpView.layer.shadowRadius = 6
         dismissPopUpButton.centerYAnchor.constraint(equalTo: popUpView.centerYAnchor).isActive = true
         dismissPopUpButton.centerXAnchor.constraint(equalTo: popUpView.centerXAnchor).isActive = true
         dismissPopUpButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         dismissPopUpButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        dismissPopUpButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        dismissPopUpButton.layer.shadowColor = UIColor.black.cgColor
-        dismissPopUpButton.layer.shadowOpacity = 0.1
-        dismissPopUpButton.layer.shadowRadius = 4
-        dismissPopUpButton.layer.cornerRadius = 25
     }
     
     override func viewDidLoad() {
